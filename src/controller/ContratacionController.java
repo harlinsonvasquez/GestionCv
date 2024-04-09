@@ -87,18 +87,18 @@ public class ContratacionController {
         }
     }
     //metodo cambiar estado con el metodo cambiarestado de contratacionmodel
-    public static void cambiarEstado(){
+    /*public static void cambiarEstado(){
         ContratacionModel objContratacionModel = new ContratacionModel();
         String ListContrataciones = getAllString();
         int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(ListContrataciones + "\n Ingrese el ID de la contratacion a cambiar estado:"));
 
-        Contratacion objContratacion = objContratacionModel.cambiarEstado(idUpdate,);
+        Contratacion objContratacion = objContratacionModel.cambiarEstado(idUpdate,"");
         if(objContratacion==null){
             JOptionPane.showMessageDialog(null,"Contratacion no encontrada");
         }else{
-            String estado = JOptionPane.showInputDialog("Ingrese el estado de la contratacion:", objContratacion.getEstado());
+            String estado = JOptionPane.showInputDialog("Ingrese el estado de la contratacion:", objContratacion.getId(), objContratacion.getEstado());
             objContratacion.setEstado(estado);
             objContratacionModel.cambiarEstado(objContratacion);
         }
-    }
+    }*/
 }
