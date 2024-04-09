@@ -87,18 +87,28 @@ public class ContratacionController {
         }
     }
     //metodo cambiar estado con el metodo cambiarestado de contratacionmodel
-    /*public static void cambiarEstado(){
+    public static void cambiarEstado() {
         ContratacionModel objContratacionModel = new ContratacionModel();
-        String ListContrataciones = getAllString();
-        int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(ListContrataciones + "\n Ingrese el ID de la contratacion a cambiar estado:"));
+        String listContrataciones = getAllString();
+        int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(listContrataciones + "\nIngrese el ID de la contratación a cambiar de estado:"));
 
-        Contratacion objContratacion = objContratacionModel.cambiarEstado(idUpdate,"");
-        if(objContratacion==null){
-            JOptionPane.showMessageDialog(null,"Contratacion no encontrada");
-        }else{
-            String estado = JOptionPane.showInputDialog("Ingrese el estado de la contratacion:", objContratacion.getId(), objContratacion.getEstado());
-            objContratacion.setEstado(estado);
-            objContratacionModel.cambiarEstado(objContratacion);
+        // Verificar si la contratación existe antes de intentar cambiar su estado
+        Contratacion objContratacion = objContratacionModel.findById(idUpdate);
+        if (objContratacion == null) {
+            JOptionPane.showMessageDialog(null, "Contratación no encontrada");
+        } else {
+            String estado = JOptionPane.showInputDialog("Ingrese el nuevo estado de la contratación para ID " + objContratacion.getId() + ":", objContratacion.getEstado());
+            // Verificar si el estado no está vacío antes de intentar cambiarlo
+            if (estado != null && !estado.trim().isEmpty()) {
+                if (objContratacionModel.cambiarEstado(idUpdate, estado)) {
+                    JOptionPane.showMessageDialog(null, "Estado de la contratación actualizado con éxito");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el estado de la contratación");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "El estado no puede estar vacío");
+            }
         }
-    }*/
+    }
+
 }

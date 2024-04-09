@@ -142,7 +142,7 @@ public class Main {
                     ContratacionController.update();
                     break;
                 case "4":
-                    //PacienteController.delete();
+                    ContratacionController.cambiarEstado();
                     break;
                 case "5":
                     //PacienteController.delete();
